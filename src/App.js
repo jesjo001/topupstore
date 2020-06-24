@@ -78,7 +78,7 @@ const Home = ({history}) =>{
     timestamp,
     accuracy,
     error,
-  } = usePosition();
+  } = usePosition(watch);
 
   const handleLogin = useCallback(
     async event => {
@@ -97,7 +97,6 @@ const Home = ({history}) =>{
     }, 
     [history]
   );
-
   
   useEffect(() => {
     if(latitude){
@@ -111,9 +110,9 @@ const Home = ({history}) =>{
            setNewState(stateState)
 
            alert("your address is" + address)
-           console.log( "herEs the address from Geoloc" + address);       
-           console.log( "herEs the address from Geoloc 3" + stateCountry);           
-           console.log( "heres the address from stateState" + stateState);
+        //   console.log( "heres the address from Geoloc" + address);       
+        //   console.log( "heres the address from Geoloc 3" + stateCountry);           
+       //    console.log( "heres the address from stateState" + stateState);
            return address;
         },
         error =>{
@@ -153,11 +152,11 @@ const Home = ({history}) =>{
         stateFrom : state        
       })
       
-    console.log("user State is:" + usersState);
+    /* console.log("user State is:" + usersState);
     console.log("country: " + country );
     console.log("  street: " + street );
     console.log(" usersState: " + usersState);
-    console.log("  city: " + city);
+    console.log("  city: " + city); */
     setFirstRun(true)
     console.log(firstRun)
     }catch(error){

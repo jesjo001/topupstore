@@ -47,8 +47,8 @@ function getState(){
       const stateState = response.results[4].address_components[0].long_name;
              
        alert("your address is" + address)
-       console.log( "heres the address from Geoloc" + address);       
-       console.log( "heres the address from State 3" + stateState);
+    //   console.log( "heres the address from Geoloc" + address);       
+     //  console.log( "heres the address from State 3" + stateState);
       setState(state)
       setGenState(state)
        return stateState;
@@ -87,7 +87,7 @@ function getState(){
         const unsubscribe = firebase
         .firestore()
         .collection('productData')
-      //  .where('state', '==', ' Lagos' )
+      //  .where('state', '==', userLocation )
         .onSnapshot((snapshot) => {
           const newProducts = snapshot.docs.map((doc) =>({
             id: doc.id,

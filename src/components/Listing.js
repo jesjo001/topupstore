@@ -1,5 +1,5 @@
-import React, { useContext, useState} from 'react';
-import {BrowserRouter as  Redirect } from 'react-router-dom';
+import React, { useContext, useState, useEffect} from 'react';
+import {BrowserRouter as Route,  Redirect } from 'react-router-dom';
 import { AuthContext } from '../Auth';
 
 import "../App.css";
@@ -21,6 +21,17 @@ function Listing(){
   const [city, setCity] = useState('')
   const [zip, setZip] = useState('')
 
+
+
+
+    if(currentUser == null ){
+      return <Redirect to={"/Shop"} />;
+    }else if(currentUser.displayName == null){  
+      alert("You need to update Your Profile to List an item")
+      return <Redirect to={"/updateUser"} />;
+    }
+  
+
   function userAsign(){
     let  name = currentUser.displayName;
     /*let  email = currentUser.email;
@@ -33,12 +44,7 @@ function Listing(){
   }
 
 
-  if(currentUser == null ){
-    return <Redirect to="/Shop" />;
-  }else if(currentUser.displayName == null){  
-    alert("You need to update Your Profile to List an item")
-    return <Redirect to="/updateUser" />;
-  }
+
 
   function onSubmit(e){
     e.preventDefault()
@@ -72,7 +78,7 @@ function Listing(){
 
  
     return(
-      <div className="container" id="ListPg">        
+      <div className="container" id="ListPg" >        
         <div className="row">
             <div className="col-3"></div>
             <div className="col-6">
