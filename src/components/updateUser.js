@@ -1,6 +1,8 @@
 import React, { useContext, useState} from 'react';
 import "../App.css";
-import {  AuthContext } from '../Auth';
+import {  AuthContext } from '../Auth';import {BrowserRouter as Route,  Redirect } from 'react-router-dom';
+
+
 
 function UpdateUser({history}){
     
@@ -10,6 +12,12 @@ function UpdateUser({history}){
   const [state, setState] = useState('')
   const [city, setCity] = useState('')
   const [zip, setZip] = useState('')
+
+  if(currentUser == null ){
+    alert("You need to Log in to update your profile ")
+    return <Redirect to={"/Shop"} />;
+    
+  }
   
   function onSubmit(e){
     e.preventDefault()
