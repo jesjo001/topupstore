@@ -25,7 +25,8 @@ function Listing(){
 
 
     if(currentUser == null ){
-      return <Redirect to={"/Shop"} />;
+      alert("You need to Log in to List an item")
+      return <Redirect to={"/"} />;
     }else if(currentUser.displayName == null){  
       alert("You need to update Your Profile to List an item")
       return <Redirect to={"/updateUser"} />;
