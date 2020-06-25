@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     
     const [addressString1, setAddressString1] = useState(null);
     const [addressString2, setAddressString2] = useState(null);
-
+/* 
     const watch = true;
     const {
     latitude,
@@ -18,11 +18,11 @@ export const AuthProvider = ({ children }) => {
     timestamp,
     accuracy,
     error,
-  } = usePosition();
+  } = usePosition(); */
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged(setCurrentUser);
-
+/* 
         Geocode.fromLatLng(latitude,longitude).then(
             response => {
               const address = response.results[0].formatted_address;
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
                setCurrentUserState(stateState)
     
             //   alert("your address is" + address)
-            //   console.log( "heres the address from Geoloc" + address);       
+               console.log( "heres the address from Geoloc" + address);       
             //   console.log( "heres the address from Geoloc 3" + stateCountry);           
            //    console.log( "heres the address from stateState" + stateState);
                return address;
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
               console.error(error);      
             }
         
-          );
+          ); */
 
 
     }, []);

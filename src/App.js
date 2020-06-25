@@ -68,7 +68,8 @@ const Home = ({history}) =>{
   let [ useAddress, setUseAddress] = useState([]);
   
   let [ newState, setNewState] = useState([]);
- 
+  const { currentUserState, setCurrentUserState } = useContext(AuthContext);
+  
   
   const userStore = useUserStore()
   const watch = true;
@@ -108,8 +109,9 @@ const Home = ({history}) =>{
            setUseAddress(address)
            setStateCountry(stateCountry)
            setNewState(stateState)
+ //          setCurrentUserState(stateState)
 
-           alert("your address is" + address)
+         //  alert("your address is" + address)
         //   console.log( "heres the address from Geoloc" + address);       
         //   console.log( "heres the address from Geoloc 3" + stateCountry);           
        //    console.log( "heres the address from stateState" + stateState);

@@ -11,6 +11,12 @@ const Shop = () =>{
   const [message, setMessage] = useState('')
   const products = useShop();
   const { currentUser } = useContext(AuthContext);
+  const { currentUserState, setCurrentUserState } = useContext(AuthContext);
+  const { addressString1 } = useContext(AuthContext);
+  const { addressString2 } = useContext(AuthContext);
+
+
+
   const [ userName, setUserName] = useState();  
   const [ state, setState ] = useState();  
   let [ city, setCity ] = useState();
@@ -70,6 +76,9 @@ function getState(){
         const stateState = response.results[4].address_components[0].long_name;              
 
          alert("your address is" + address)
+
+         
+         console.log( "herEs the address from current7" + currentUserState );   
          console.log( "herEs the address from Geoloc" + address);       
          console.log( "herEs the address from State 3" + stateState);
         // Shop.splitAddress()
@@ -82,6 +91,8 @@ function getState(){
     );
 
       if(sort){
+        console.log("context address is" + addressString2)
+        console.log("the new gen state" + currentUserState)
         console.log("i ran and state is " + usersState)
         console.log("this is props" + state)
         const unsubscribe = firebase
